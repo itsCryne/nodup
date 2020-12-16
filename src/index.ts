@@ -63,7 +63,7 @@ client.on('message', async (message: Discord.Message) => {
 	const messages = messageCache.get(message.author.id),
 	cachedMessage = messages?.get(message.content);
 	if (cachedMessage) {
-		if (message.createdAt.getTime() - cachedMessage > cooldown) {
+		if (message.createdAt.getTime() - cachedMessage < cooldown) {
 			let embed = new Discord.MessageEmbed().setColor('#F36D6B');
 			embed.setDescription(warnMessage);
 			message.channel.send((mentionUser ? '<@' +message.author.id + '> ⚠' : undefined), embed).then(newMessage => {
