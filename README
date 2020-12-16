@@ -1,0 +1,2 @@
+## NoDup – Ein Discord-Bot, um doppelt versandte Nachrichten zu entfernen.
+Du möchtest `NoDup` ausprobieren? Lade dir den Quelltext herunter (Befehl `git clone https://github.com/itsCryne/nodup.git`), passe die Variablen an (Datei `src/index.ts`) und installiere die benötigten Bibliotheken (Befehl `npm install`) Um deine Änderungen am Quelltext auch in Aktion zu sehen führe den Befehl `tsc` (nach jeder Änderung) und `node .` (zum Starten der Anwendung) aus.
