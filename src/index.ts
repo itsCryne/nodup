@@ -18,7 +18,7 @@ let	warnMessage = 'Bitte sende keine doppelten Nachrichten.',
 
 const updateCache = () => {
 	const timestamp = new Date().getTime();
-	if (!newMessages) return; // → keine neuen Nachrichten
+	if (!newMessages) {return;} // → keine neuen Nachrichten
 	for (const [user, messages] of messageCache.entries()) {
 		for (const message of messages.entries()) {
 			if (timestamp - message[1] > cooldown) {
@@ -34,7 +34,7 @@ client.on('ready', async () => {
 	if (process.env.CHANNELS) {
 		process.env.CHANNELS.split(' ').forEach(channelId => {
 			const channel = client.channels.cache.get(channelId);
-			if (channel?.isText()) channelIds.push(channelId);
+			if (channel?.isText()) {channelIds.push(channelId);}
 		});
 	}
 	if (process.env.MESSAGE) {
@@ -51,7 +51,7 @@ client.on('ready', async () => {
 });
 
 client.on('message', async (message: Discord.Message) => {
-	if (message.author.bot || !channelIds.includes(message.channel.id)) return;
+	if (message.author.bot || !channelIds.includes(message.channel.id)) {return;}
 	newMessages = true; // → updateCache() räumt wieder etwas auf
 
 	if (!messageCache.has(message.author.id)) {
